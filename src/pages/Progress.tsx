@@ -32,26 +32,26 @@ export function Progres() {
         </div>
         <div className="w-full">
           <div className="flex items-center m-2">
-            <button className="w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
+            <button className="w-[5rem] xl:w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
               Simple Row
             </button>
-            <button className="w-[10rem] bg-indigo-700 mt-3  m-auto p-1">
+            <button className="w-[5rem] xl:w-[10rem] bg-indigo-700 mt-3  m-auto p-1">
               Advance Row
             </button>
-            <button className="w-[10rem] bg-indigo-700 mt-3  m-auto p-1">
-              Hero Row
+            <button className="w-[5rem] xl:w-[10rem] bg-indigo-700 mt-3  m-auto p-1">
+              Hero Row 🥳
             </button>
           </div>
         </div>
         <div>
           <div className="flex m-2">
-            <button className="w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
+            <button className="w-[5rem] xl:w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
               Show releated
             </button>
-            <button className="w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
+            <button className="w-[5rem] xl:w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
               Edit progress
             </button>
-            <button className="w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
+            <button className="w-[5rem] xl:w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
               Toggle complete
             </button>
           </div>
