@@ -1,5 +1,11 @@
 import React from "react";
 import { FilterDouble } from "../components/FilterDouble";
+import {
+  createScrollbodyController,
+  ScrollBody,
+} from "../components/ScrollBody";
+
+const scrollbodyController = createScrollbodyController(50, 5000);
 
 export function Progres() {
   return (
@@ -20,38 +26,51 @@ export function Progres() {
         </div>
       </div>
       <div className="flex flex-1 flex-col m-2">
-        <div className="p-2 flex flex-col w-full border border-gray-700 overflow-y-auto flex-1">
-          <div className="flex border-b border-gray-500 min-h-[60px] w-full"></div>
-          <div className="flex border-b border-gray-500 min-h-[60px] w-full"></div>
-          <div className="flex border-b border-gray-500 min-h-[60px] w-full"></div>
-          <div className="flex border-b border-gray-500 min-h-[60px] w-full"></div>
-          <div className="flex border-b border-gray-500 min-h-[60px] w-full"></div>
-          <div className="flex border-b border-gray-500 min-h-[60px] w-full"></div>
-          <div className="flex border-b border-gray-500 min-h-[60px] w-full"></div>
-          <div className="flex border-b border-gray-500 min-h-[60px] w-full"></div>
+        <div className="p-2 flex flex-col w-full border border-gray-700 flex-1">
+          <ScrollBody
+            scrollController={scrollbodyController}
+            headerRenderCallback={() => {
+              return (
+                <div
+                  className="bg-gray-700 w-full flex"
+                  style={{ height: "90px" }}
+                >
+                  <div className="m-auto">my header</div>
+                </div>
+              );
+            }}
+            rowRenderCallback={(row) => {
+              return (
+                <div className="bg-gray-600 w-full h-full flex">
+                  <div className="m-auto">Row no: {row.no + 1}</div>
+                </div>
+              );
+            }}
+          ></ScrollBody>
         </div>
+
         <div className="w-full">
           <div className="flex items-center m-2">
-            <button className="w-[5rem] xl:w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
+            <button className="w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
               Simple Row
             </button>
-            <button className="w-[5rem] xl:w-[10rem] bg-indigo-700 mt-3  m-auto p-1">
+            <button className="w-[10rem] bg-indigo-700 mt-3  m-auto p-1">
               Advance Row
             </button>
-            <button className="w-[5rem] xl:w-[10rem] bg-indigo-700 mt-3  m-auto p-1">
+            <button className="w-[10rem] bg-indigo-700 mt-3  m-auto p-1">
               Hero Row 🥳
             </button>
           </div>
         </div>
         <div>
           <div className="flex m-2">
-            <button className="w-[5rem] xl:w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
+            <button className="w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
               Show releated
             </button>
-            <button className="w-[5rem] xl:w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
+            <button className="w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
               Edit progress
             </button>
-            <button className="w-[5rem] xl:w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
+            <button className="w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
               Toggle complete
             </button>
           </div>
@@ -62,7 +81,6 @@ export function Progres() {
           <label className="m-1">Drum no:</label>
           <input className="bg-gray-700 p-1 m-1 l outline-gray-500"></input>
         </div>
-        <hr className="mt-3  border-gray-500"></hr>
         <div className="flex flex-col m-1 p-1">
           <label className="m-1">Meter High:</label>
           <input className="bg-gray-700 p-1 m-1 l outline-gray-500"></input>
@@ -83,9 +101,7 @@ export function Progres() {
           ></input>
         </div>
         <div className="flex flex-col m-1 p-1">
-          <button className="p-1 m-1  bg-indigo-700">
-            Report Progress
-          </button>
+          <button className="p-1 m-1  bg-indigo-700">Report Progress</button>
         </div>
       </div>
     </div>
