@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 
+/**
+ * ScrollController
+ */
 export class ScrollController {
   rows: { key: number; no: number }[];
   time: any;
@@ -9,6 +12,7 @@ export class ScrollController {
   datasetSize: number;
   lastScrollTop = 0;
   minNumRows: number;
+  largeScrollTimer: any;
 
   constructor(rowheight: number, datasetSize: number, minNumRows = 25) {
     this.rowHeight = rowheight;
@@ -22,7 +26,7 @@ export class ScrollController {
   private createRowContext() {
     const y = [];
     for (let i = 0; i < this.minNumRows; i++) {
-      y.push({ key: i, no: i });
+      y.push({ key: i, no: i, needsUpdate: false });
     }
     return y;
   }
@@ -32,6 +36,10 @@ export class ScrollController {
   }
 }
 
+/**
+ * createScrollbodyController
+ */
+
 export function createScrollbodyController(
   rowheight: number,
   datasetSize: number
@@ -39,6 +47,9 @@ export function createScrollbodyController(
   return new ScrollController(rowheight, datasetSize);
 }
 
+/**
+ * ScrollBody
+ */
 export function ScrollBody(props: {
   rowRenderCallback: (row: { key: number; no: number }) => any;
   headerRenderCallback: () => any;
@@ -50,12 +61,6 @@ export function ScrollBody(props: {
   const rowHeight = sc.rowHeight;
   const length = sc.datasetSize;
   const ref = useRef(null);
-
-  /**
-   * this helps scrolling if not needed
-   * if row is widthin view port
-   * if it isnt we then we want to move, so user does not need to look for what he selected
-   */
 
   if (sc.setScrollToNo !== null) {
     clearTimeout(sc.time);
@@ -71,14 +76,7 @@ export function ScrollBody(props: {
             setUpdate(update ? false : true);
           }
 
-          // we use half offsetHeight to try and get closer to the middle..
-          if (sc.lastScrollTop > el.scrollTop + el.offsetHeight) {
-            setTop(sc.lastScrollTop - el.offsetHeight / 2);
-          }
-
-          if (sc.lastScrollTop < el.scrollTop) {
-            setTop(sc.lastScrollTop - el.offsetHeight / 2);
-          }
+          setTop(sc.lastScrollTop);
         }
 
         sc.setScrollToNo = null;
@@ -103,43 +101,74 @@ export function ScrollBody(props: {
   function onscroll(event: any) {
     flushSync(() => {
       const el = event.target as HTMLElement;
+      const clientHeight = el.clientHeight;
       const currentTop = Math.floor(el.scrollTop / rowHeight);
+      const currentTopEnd = Math.floor(
+        (el.scrollTop + clientHeight) / rowHeight
+      );
 
       const isDownScroll = el.scrollTop > sc.lastScrollTop;
-      const largeScroll = true;
-      sc.lastScrollTop = el.scrollTop;
+      const scrolllength = Math.abs(sc.lastScrollTop - el.scrollTop);
 
-      if (!isDownScroll) {
-        sc.rows.sort((a, b) => {
-          if (a.no < b.no) {
-            return 1;
-          } else {
-            return -1;
-          }
-        });
-      } else {
-        sc.rows.sort((a, b) => {
-          if (a.no < b.no) {
-            return -1;
-          } else {
-            return 1;
-          }
-        });
+      let largeScroll = false;
+      console.log(scrolllength, scrolllength > 100);
+      if (scrolllength > 100) {
+        largeScroll = true;
       }
+      sc.lastScrollTop = el.scrollTop;
 
       if (largeScroll) {
         // large scroll will break logic on moving one and one, why bother
-        sc.rows.forEach((row, i) => {
-          row.no = currentTop + i;
-        });
-      }
+        clearTimeout(sc.largeScrollTimer);
+        sc.largeScrollTimer = setTimeout(() => {
+          sc.rows.forEach((row, i) => {
+            row.no = currentTop + i;
+          });
 
-      /**
-       * just to trigger rerender
-       */
-      setUpdate(update ? false : true);
-      // need to set top, so when rerender triggers it stays at same location
-      setTop(el.scrollTop);
+          setUpdate(update ? false : true);
+          setTop(el.scrollTop);
+        }, 20);
+      } else {
+        const rowsWanted = new Set<number>();
+
+        if (isDownScroll) {
+          let count = currentTop - 4;
+          sc.rows.forEach(() => {
+            rowsWanted.add(count);
+            count++;
+          });
+        } else {
+          let countTop = currentTopEnd;
+          let count = currentTopEnd + 5;
+          sc.rows.forEach(() => {
+            // I can prb improve this
+            rowsWanted.add(count);
+            count--;
+          });
+        }
+
+        sc.rows.forEach((row) => {
+          if (row.no <= currentTop) {
+            row.no = -1;
+          }
+          if (row.no >= currentTopEnd) {
+            row.no = -1;
+          }
+          if (row.no >= 0) {
+            rowsWanted.delete(row.no);
+          }
+        });
+
+        const rowsWantedArray = Array.from(rowsWanted);
+        sc.rows.forEach((row) => {
+          if (row.no < 0) {
+            row.no = rowsWantedArray.pop() as any;
+          }
+        });
+
+        setUpdate(update ? false : true);
+        setTop(el.scrollTop);
+      }
     });
   }
 
