@@ -13,6 +13,7 @@ export default defineConfig(({ command }) => {
             publicDir: path.resolve("./public"),
             plugins: [react()],
             server: {
+                host:true,
                 port: 3000
             },
             base: "./",

@@ -4,8 +4,9 @@ import {
   createScrollbodyController,
   ScrollBody,
 } from "../components/ScrollBody";
+import { getDummyData } from "../dummyData";
 
-const scrollbodyController = createScrollbodyController(50, 5000);
+const scrollbodyController = createScrollbodyController(70, 5000);
 
 export function Progres() {
   return (
@@ -40,9 +41,32 @@ export function Progres() {
               );
             }}
             rowRenderCallback={(row) => {
+              const data = getDummyData()[row.no];
+              if (!data) {
+                return null;
+              }
               return (
                 <div className="bg-gray-600 w-full h-full flex">
-                  <div className="m-auto">Row no: {row.no + 1}</div>
+                  <div
+                    className="flex ml-1 mr-1 items-center"
+                    style={{ width: "200px" }}
+                  >
+                    <div>{data.tag}</div>
+                  </div>
+                  <div
+                    className="flex items-center border-l border-gray-500 ml-1 mr-1"
+                    style={{ width: "50px" }}
+                  >
+                    <div className="p-1">{data.op}</div>
+                  </div>
+                  <div className="flex flex-col border-l border-gray-500 ml-1 mr-1"   style={{ width: "200px" }}>
+                    <div className="flex-1 p-1"> {data.fromTag}</div>
+                    <div className="flex-1 p-1"> {data.toTag}</div>
+                  </div>
+                  <div className="flex flex-col border-l border-gray-500 ml-1 mr-1">
+                    <div className="flex-1 p-1"> {data.description}</div>
+                    <div className="flex-1 p-1"> {data.comment}</div>
+                  </div>
                 </div>
               );
             }}

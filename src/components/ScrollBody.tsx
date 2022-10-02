@@ -42,9 +42,10 @@ export class ScrollController {
 
 export function createScrollbodyController(
   rowheight: number,
-  datasetSize: number
+  datasetSize: number,
+  minNumRows = 10
 ) {
-  return new ScrollController(rowheight, datasetSize);
+  return new ScrollController(rowheight, datasetSize, minNumRows);
 }
 
 /**
@@ -132,14 +133,14 @@ export function ScrollBody(props: {
         const rowsWanted = new Set<number>();
 
         if (isDownScroll) {
-          let count = currentTop - 4;
+          let count = currentTop - 1;
           sc.rows.forEach(() => {
             rowsWanted.add(count);
             count++;
           });
         } else {
           let countTop = currentTopEnd;
-          let count = currentTopEnd + 5;
+          let count = currentTopEnd + 1;
           sc.rows.forEach(() => {
             // I can prb improve this
             rowsWanted.add(count);
