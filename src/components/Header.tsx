@@ -10,7 +10,7 @@ export function Header() {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="currentColor"
-        className="w-8 h-8 m-3  text-indigo-600"
+        className="w-8 h-8 m-3  text-indigo-700"
         onClick={() => {
           guiStateStore.setState({ showQueryMenu: true });
         }}
