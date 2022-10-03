@@ -6,7 +6,7 @@ import {
 } from "../components/ScrollBody";
 import { getDummyData } from "../dummyData";
 
-const scrollbodyController = createScrollbodyController(70, 5000, 13);
+const scrollbodyController = createScrollbodyController(70, 5000, 16);
 
 export function Progres() {
   return (

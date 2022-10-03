@@ -133,14 +133,14 @@ export function ScrollBody(props: {
         const rowsWanted = new Set<number>();
 
         if (isDownScroll) {
-          let count = currentTop - 3;
+          let count = currentTop - 4;
           sc.rows.forEach(() => {
             rowsWanted.add(count);
             count++;
           });
         } else {
           let countTop = currentTopEnd;
-          let count = currentTopEnd + 3;
+          let count = currentTopEnd + 4;
           sc.rows.forEach(() => {
             // I can prb improve this
             rowsWanted.add(count);
