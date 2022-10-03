@@ -110,11 +110,9 @@ export function Progres() {
               Standard Layout
             </button>
             <button className="w-[10rem] bg-indigo-700 mt-3 ml-1 mr-1 p-1">
-              Advance Row
+              Advance Layout
             </button>
-            <button className="w-[10rem] bg-indigo-700 mt-3 ml-1 mr-1  p-1">
-              Hero Row 🥳
-            </button>
+          
           </div>
 
           <div className="flex m-auto">
@@ -126,6 +124,9 @@ export function Progres() {
             </button>
             <button className="w-[10rem] bg-indigo-700 mt-3 ml-1 mr-1 p-1">
               Toggle complete
+            </button>
+            <button className="w-[10rem] bg-indigo-700 mt-3 ml-1 mr-1 p-1">
+              Scroll top
             </button>
           </div>
         </div>
