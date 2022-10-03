@@ -6,11 +6,11 @@ import { Start } from "./Start";
 import { Tag } from "./Tag";
 import { Workpack } from "./Workpack";
 
-declare var IS_DEV: any;
+declare var BASE_PATH: any;
 
 export function Router() {
   return (
-    <BrowserRouter basename={IS_DEV ? "" : "pacs-gui-poc"}>
+    <BrowserRouter basename={BASE_PATH}>
       <Routes>
         <Route path="*" element={<Start />}></Route>
         <Route path="progress/*" element={<Progres />}></Route>
