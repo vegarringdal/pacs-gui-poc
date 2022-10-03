@@ -10,7 +10,7 @@ declare var BASE_PATH: any;
 
 export function Router() {
   return (
-    <BrowserRouter basename={BASE_PATH}>
+    <BrowserRouter >
       <Routes>
         <Route path="*" element={<Start />}></Route>
         <Route path="progress/*" element={<Progres />}></Route>

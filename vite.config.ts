@@ -8,8 +8,7 @@ export default defineConfig(({ command }) => {
       root: "./src",
       define: {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
-        APP_VERSION: `"${require("./package.json").version}"`,
-        BASE_PATH: `"/"`,
+        APP_VERSION: `"${require("./package.json").version}"`
       },
       publicDir: path.resolve("./public"),
       plugins: [react()],
@@ -31,8 +30,7 @@ export default defineConfig(({ command }) => {
       root: "./src",
       define: {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
-        APP_VERSION: `"${require("./package.json").version}"`,
-        BASE_PATH: "pacs-gui-poc",
+        APP_VERSION: `"${require("./package.json").version}"`
       },
       publicDir: path.resolve("./public"),
       plugins: [react()],
