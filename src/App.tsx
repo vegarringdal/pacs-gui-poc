@@ -19,11 +19,7 @@ export function App() {
         </div>
       </div>
 
-      <Header />
-      <div className="flex-1">
-        <Router />
-      </div>
-      <Footer />
+      <Router />
     </div>
   );
 }
