@@ -8,7 +8,8 @@ export default defineConfig(({ command }) => {
             root: "./src",
             define: {
                 // eslint-disable-next-line @typescript-eslint/no-var-requires
-                APP_VERSION: `"${require("./package.json").version}"`
+                APP_VERSION: `"${require("./package.json").version}"`,
+                IS_DEV: "1"
             },
             publicDir: path.resolve("./public"),
             plugins: [react()],

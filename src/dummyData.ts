@@ -8,6 +8,8 @@ type dataRow = {
     op:string;
     fromTag:string;
     toTag:string;
+    planned: number;
+    installed: number;
 }
 const data: dataRow[]= [];
 
@@ -17,8 +19,11 @@ for(let i = 0; i < 5000; i++){
 
     u++
     let OP = ""
+    let planned = 1
+    let installed = 0;
     if(u === 1){
         OP = "PU"
+        planned = 66
     }
     if(u === 2){
         OP = "TF"
@@ -43,6 +48,8 @@ for(let i = 0; i < 5000; i++){
         description: `Tagno:${i}-desc`,
         comment: `Tagno:${i}-some comment`,
         op: OP,
+        planned,
+        installed,
         fromTag: `Tagno:${i} -from`,
         toTag: `Tagno:${i} -to`
     })

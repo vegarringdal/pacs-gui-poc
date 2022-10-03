@@ -1,9 +1,9 @@
 import create from "zustand";
 
 type state = {
-  todo: string;
+  showQueryMenu: boolean;
 };
 
 export const guiStateStore = create<state>(() => ({
-  todo: "todo",
+  showQueryMenu: false,
 }));

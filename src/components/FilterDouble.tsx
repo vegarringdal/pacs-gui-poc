@@ -7,12 +7,9 @@ export function FilterDouble(props: { title: string }) {
       <input className="bg-gray-700 p-1 m-1 outline-gray-500 "></input>
       <div className="flex w-full">
         <button className="flex-1 bg-indigo-700 mt-3 m-1 p-1 w-full">
-          Query DB
+          Find {props.title}
         </button>
-        <button className="flex-1 bg-indigo-700 mt-3 m-1 p-1 w-full">
-          Filter
-        </button>
-      </div>
+       </div>
     </div>
   );
 }
