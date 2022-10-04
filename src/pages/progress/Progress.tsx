@@ -2,7 +2,7 @@ import React from "react";
 import { ProgressSlideInFilter } from "./ProgressSlideInFilter";
 import { ProgressScrollAreaRow } from "./ProgressScrollAreaRow";
 import { ProgressScrollAreaHeader } from "./ProgressScrollAreaHeader";
-import { ProgressDetails } from "./progressDetails";
+import { ProgressDetails } from "./ProgressDetails";
 import { ProgressBottomAction } from "./ProgressBottomAction";
 import { ScrollBody } from "../../components/ScrollBody";
 import { progressScrollController } from "./progressScrollController";
