@@ -16,7 +16,7 @@ export function MainHamburger() {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="w-8 h-8 m-3  text-indigo-700"
+      className="w-8 h-8 fixed top-2 left-2 text-indigo-600"
       onClick={() => {
         guiStateStore.setState({ showQueryMenu: true });
       }}

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { Drum } from "./Drum";
@@ -10,9 +10,17 @@ import { Workpack } from "./Workpack";
 
 declare var BASE_PATH: any;
 
+function Hook() {
+  const location = useLocation();
+
+  console.log(location.pathname);
+  return null;
+}
+
 export function Router() {
   return (
     <BrowserRouter>
+      <Hook />
       <Header />
       <div className="flex-1">
         <Routes>
