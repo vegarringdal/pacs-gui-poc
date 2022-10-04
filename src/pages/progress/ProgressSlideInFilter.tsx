@@ -1,8 +1,8 @@
 import React from "react";
-import { guiStateStore } from "../state/gui";
-import { FilterDouble } from "./FilterDouble";
+import { guiStateStore } from "../../state/gui";
+import { DummyFilterWithLabel } from "../../components/DummyFilterWithLabel";
 
-export function ProgressFilterSidebar() {
+export function ProgressSlideInFilter() {
   const guiState = guiStateStore();
 
   if (!guiState.showQueryMenu) {
@@ -17,14 +17,13 @@ export function ProgressFilterSidebar() {
             <div className="m-auto ">Query DB</div>
           </div>
           <div className="flex flex-col p-2">
-            <FilterDouble title="Forman" />
+            <DummyFilterWithLabel title="Forman" />
             <div className="mt-7"></div>
-            <FilterDouble title="Workpack" />
+            <DummyFilterWithLabel title="Workpack" />
             <div className="mt-7 "></div>
-            <FilterDouble title="Tag" />
+            <DummyFilterWithLabel title="Tag" />
             <div className="mt-7 "></div>
-            <FilterDouble title="Operation Code" />
-            <div className="mt-7 "></div>
+
             <div className="flex m-2">
               <button className="w-[10rem] bg-indigo-700 mt-3 m-auto p-1">
                 Find all

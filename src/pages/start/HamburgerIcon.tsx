@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { guiStateStore } from "../state/gui";
+import { guiStateStore } from "../../state/gui";
 
-export function MainHamburger() {
+export function HamburgerIcon() {
   const location = useLocation();
 
   if (location.pathname === "/") {

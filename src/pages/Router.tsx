@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
-import { Drum } from "./Drum";
-import { Progres } from "./Progress";
-import { Start } from "./Start";
-import { Tag } from "./Tag";
-import { Workpack } from "./Workpack";
+import { Drum } from "./drum/Drum";
+import { Progres } from "./progress/Progress";
+import { Start } from "./start/Start";
+import { Tag } from "./tag/Tag";
+import { Workpack } from "./workpack/Workpack";
 
 declare var BASE_PATH: any;
 

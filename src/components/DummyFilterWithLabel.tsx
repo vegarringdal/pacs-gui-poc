@@ -1,6 +1,11 @@
 import React from "react";
 
-export function FilterDouble(props: { title: string }) {
+/**
+ * simple dummy comp for visual testing
+ * @param props 
+ * @returns 
+ */
+export function DummyFilterWithLabel(props: { title: string }) {
   return (
     <div className="flex flex-col">
       <label className="m-1 mb-0 ">{props.title}:</label>

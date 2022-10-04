@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 
+
+export type ScrollBodyRowEvent = { key: number; no: number }
+
 /**
  * ScrollController
  */
 export class ScrollController {
-  rows: { key: number; no: number }[];
+  rows: ScrollBodyRowEvent[];
   time: any;
   setScrollToNo: number | null;
   rowHeight: number;
@@ -52,7 +55,7 @@ export function createScrollbodyController(
  * ScrollBody
  */
 export function ScrollBody(props: {
-  rowRenderCallback: (row: { key: number; no: number }) => any;
+  rowRenderCallback: (row: ScrollBodyRowEvent) => any;
   headerRenderCallback: () => any;
   scrollController: ScrollController;
 }) {
@@ -113,7 +116,7 @@ export function ScrollBody(props: {
 
       let largeScroll = false;
       console.log(scrolllength, scrolllength > 100);
-      if (scrolllength > 100) {
+      if (scrolllength > rowHeight * 3) {
         largeScroll = true;
       }
       sc.lastScrollTop = el.scrollTop;
@@ -128,7 +131,7 @@ export function ScrollBody(props: {
 
           setUpdate(update ? false : true);
           setTop(el.scrollTop);
-        }, 20);
+        }, 200);
       } else {
         const rowsWanted = new Set<number>();
 
