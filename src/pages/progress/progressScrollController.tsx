@@ -1,4 +1,4 @@
 import { createScrollbodyController } from "../../components/ScrollBody";
 
 
-export const progressScrollController = createScrollbodyController(70, 5000, 16);
+export const progressScrollController = createScrollbodyController(90, 5000, 16);

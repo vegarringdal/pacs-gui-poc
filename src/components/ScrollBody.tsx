@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 
-
-export type ScrollBodyRowEvent = { key: number; no: number }
+export type ScrollBodyRowEvent = { key: number; no: number };
 
 /**
  * ScrollController
@@ -184,9 +183,11 @@ export function ScrollBody(props: {
           ref={ref}
           onScroll={onscroll}
           style={{ overflowY: "scroll" }}
-          className="border-l border-b border-gray-700  scrollbar pointer-events-auto w-full h-full"
+          className="border-l border-b border-gray-700  scrollbar pointer-events-auto w-full h-full "
         >
-          <div className="sticky top-0 z-20">
+          <div className="sticky top-0 z-20" style={{
+              height: `${rowHeight}px`
+            }}>
             {props.headerRenderCallback()}
           </div>
           <div
@@ -213,7 +214,7 @@ export function ScrollBody(props: {
                 <div
                   key={row.key}
                   style={styles}
-                  className="flex border-b border-gray-700 pointer-events-none"
+                  className="flex pointer-events-none "
                 >
                   {props.rowRenderCallback(row)}
                 </div>

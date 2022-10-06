@@ -21,17 +21,25 @@ export function Router() {
   return (
     <BrowserRouter>
       <Hook />
-      <Header />
-      <div className="flex-1">
-        <Routes>
-          <Route path="*" element={<Start />}></Route>
-          <Route path="progress/*" element={<Progres />}></Route>
-          <Route path="workpack/*" element={<Workpack />}></Route>
-          <Route path="drum/*" element={<Drum />}></Route>
-          <Route path="tag/*" element={<Tag />}></Route>
-        </Routes>
+      <div className="grid grid-cols-1 grid-rows-16 h-full">
+        <div className="row-start-1 row-end-2">
+          <Header />
+        </div>
+
+        <div className="row-start-2 row-end-16">
+          <Routes>
+            <Route path="*" element={<Start />}></Route>
+            <Route path="progress/*" element={<Progres />}></Route>
+            <Route path="workpack/*" element={<Workpack />}></Route>
+            <Route path="drum/*" element={<Drum />}></Route>
+            <Route path="tag/*" element={<Tag />}></Route>
+          </Routes>
+        </div>
+
+        <div className="row-start-16">
+          <Footer />
+        </div>
       </div>
-      <Footer />
     </BrowserRouter>
   );
 }

@@ -4,40 +4,22 @@ import { getDummyData } from "../../dummyData";
 
 export function ProgressScrollAreaHeader() {
   return (
-    <div
-      className="bg-gray-700 w-full flex font-semibold border-b border-gray-900"
-      style={{ height: "70px" }}
-    >
-      <div className="flex items-center" style={{ width: "250px" }}>
-        <div className="p-1 ">Tag</div>
+    <div className="bg-gray-800 w-full h-full grid grid-cols-19 grid-rows-3 box-border border-gray-700/50  font-semibold">
+      <div className="col-span-5 row-span-3 border border-1 border-gray-700/50 flex justify-center items-center">
+        Tag
       </div>
-      <div
-        className="flex items-center border-l border-gray-500"
-        style={{ width: "50px" }}
-      >
-        <div className="p-1">OP</div>
+      <div className="col-span-1 row-span-3 border border-1 border-gray-700/50  flex justify-center items-center">
+         Op
       </div>
-      <div
-        className="flex flex-col  border-l border-gray-500  items-end"
-        style={{ width: "90px" }}
-      >
-        <div className="flex-1 p-1"> Planned</div>
-        <hr className="w-full border-1 border-gray-500"></hr>
-        <div className="flex-1 p-1"> Installed</div>
-      </div>
-      <div
-        className="flex flex-col border-l border-gray-500"
-        style={{ width: "250px" }}
-      >
-        <div className="flex-1 p-1 pr-3"> From Tag</div>
-        <hr className="w-full border-1 border-gray-500"></hr>
-        <div className="flex-1 p-1 pr-3"> To Tag</div>
-      </div>
-      <div className="flex flex-col border-l border-gray-500 flex-grow">
-        <div className="flex-1 p-1"> Description</div>
-        <hr className="w-full border-1 border-gray-500"></hr>
-        <div className="flex-1 p-1"> Comment</div>
-      </div>
+      <div className="col-span-2 border border-1 border-gray-700/50  p-1">Planned</div>
+      <div className="col-span-5 border border-1 border-gray-700/50  p-1">From Tag</div>
+      <div className="col-span-3 border border-1 border-gray-700/50  p-1">Workpack</div>
+      <div className="col-span-3 border border-1 border-gray-700/50  p-1">Foreman</div>
+      <div className="col-span-2 border border-1 border-gray-700/50  p-1">Installed</div>
+      <div className="col-span-5 border border-1 border-gray-700/50  p-1">To tag</div>
+      <div className="col-span-6 border border-1 border-gray-700/50  p-1">Description</div>
+      <div className="col-span-2 border border-1 border-gray-700/50  p-1">Mc Pkg</div>
+      <div className="col-span-11 border border-1 border-gray-700/50  p-1">Comment</div>
     </div>
   );
 }

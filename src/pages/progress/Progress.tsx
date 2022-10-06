@@ -9,25 +9,24 @@ import { progressScrollController } from "./progressScrollController";
 
 export function Progres() {
   return (
-    <div className="flex h-full">
+    <div className="grid grid-cols-10 grid-rows-10 h-full">
       <ProgressSlideInFilter />
-      <div className="flex flex-1 flex-col p-2">
-        <div className="flex flex-col w-full border border-gray-900 flex-1">
-          <ScrollBody
-            scrollController={progressScrollController}
-            headerRenderCallback={() => {
-              return <ProgressScrollAreaHeader />;
-            }}
-            rowRenderCallback={(row) => {
-              return <ProgressScrollAreaRow row={row} />;
-            }}
-          ></ScrollBody>
-        </div>
-        <div className="w-full flex p-2">
-          <ProgressBottomAction />
-        </div>
+
+      <div className="row-start-1 row-end-10 col-span-8 ">
+        <ScrollBody
+          scrollController={progressScrollController}
+          headerRenderCallback={() => {
+            return <ProgressScrollAreaHeader />;
+          }}
+          rowRenderCallback={(row) => {
+            return <ProgressScrollAreaRow row={row} />;
+          }}
+        ></ScrollBody>
       </div>
-      <div className="flex flex-col ">
+      <div className="row-start-10 col-span-8 ">
+        <ProgressBottomAction />
+      </div>
+      <div className="col-start-9 col-span-2 row-start-1 row-end-9 ">
         <ProgressDetails />
       </div>
     </div>
