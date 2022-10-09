@@ -12,7 +12,7 @@ export function Header() {
   document.title = `${title}`;
 
   return (
-    <div className="flex bg-gray-900">
+    <div className="flex bg-gray-900 w-full h-full overflow-hidden">
       <HamburgerIcon />
       <div className="m-auto text-2xl text-gray-200 font-semibold p-2">
         {title}
