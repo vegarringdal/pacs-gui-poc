@@ -183,7 +183,7 @@ export function ScrollBody(props: {
           ref={ref}
           onScroll={onscroll}
           style={{ overflowY: "scroll" }}
-          className="border-l border-b border-gray-700  scrollbar pointer-events-auto w-full h-full "
+          className="scrollbar pointer-events-auto w-full h-full "
         >
           <div className="sticky top-0 z-20" style={{
               height: `${rowHeight}px`
