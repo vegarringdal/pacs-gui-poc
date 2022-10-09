@@ -10,9 +10,7 @@ import { progressScrollController } from "./progressScrollController";
 export function Progres() {
   return (
     <div className="grid grid-cols-10 grid-rows-10 h-full">
-      <ProgressSlideInFilter />
-
-      <div className="row-start-1 row-end-10 col-span-8 ">
+      <div className="overlapping row-start-1 row-end-10 col-start-1 col-end-9 z-10">
         <ScrollBody
           scrollController={progressScrollController}
           headerRenderCallback={() => {
@@ -23,12 +21,13 @@ export function Progres() {
           }}
         ></ScrollBody>
       </div>
-      <div className="row-start-10 col-span-8 ">
+      <div className="row-start-10 col-start-1 col-end-9">
         <ProgressBottomAction />
       </div>
-      <div className="col-start-9 col-span-2 row-start-1 row-end-9 ">
+      <div className="col-start-9 col-end-11 row-start-1 row-end-11 ">
         <ProgressDetails />
       </div>
+      <ProgressSlideInFilter />
     </div>
   );
 }

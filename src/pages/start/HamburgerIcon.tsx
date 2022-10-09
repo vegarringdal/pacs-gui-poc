@@ -18,7 +18,9 @@ export function HamburgerIcon() {
       stroke="currentColor"
       className="w-8 h-8 fixed top-2 left-2 text-indigo-600"
       onClick={() => {
-        guiStateStore.setState({ showQueryMenu: true });
+        guiStateStore.setState({
+          showQueryMenu: guiStateStore.getState().showQueryMenu ? false : true,
+        });
       }}
     >
       <path
