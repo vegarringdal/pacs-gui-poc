@@ -15,12 +15,14 @@ export function ProgressSlideInFilter() {
         <div className="bg-gray-900 w-full flex p-2 ">
           <div className="m-auto ">Query DB</div>
         </div>
-        <div className="flex flex-col p-2 flex-1">
+        <div className="flex flex-col p-2 flex-1 overflow-y-auto ">
           <DummyFilterWithLabel title="Forman" />
           <div className="mt-7"></div>
           <DummyFilterWithLabel title="Workpack" />
           <div className="mt-7 "></div>
           <DummyFilterWithLabel title="Tag" />
+          <div className="mt-7 "></div>
+          <DummyFilterWithLabel title="MC" />
           <div className="mt-7 "></div>
           <div className="flex-1"></div>
           <div className="flex m-2">

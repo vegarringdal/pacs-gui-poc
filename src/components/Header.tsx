@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { HamburgerIcon } from "../pages/start/HamburgerIcon";
+import { SearchIcon } from "./SearchIcon";
 
 export function Header() {
   const location = useLocation();
@@ -13,7 +13,7 @@ export function Header() {
 
   return (
     <div className="flex bg-gray-900 w-full h-full overflow-hidden">
-      <HamburgerIcon />
+      <SearchIcon />
       <div className="m-auto text-2xl text-gray-200 font-semibold p-2">
         {title}
       </div>

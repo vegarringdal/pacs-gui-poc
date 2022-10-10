@@ -9,7 +9,6 @@ export function App() {
     <div className="bg-gray-800 absolute top-0 bottom-0 left-0 right-0 text-gray-200 text-md">
       <PutInLandScape />
       <WrongDeviceInfo />
-
       <Router />
     </div>
   );
